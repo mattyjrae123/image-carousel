@@ -16,6 +16,7 @@ const View = (() => {
   }
 
   const displayNavigationCircles = (numImages, currentIndex) => {
+    carouselNavigation.textContent = "";
     for (let x = 0; x < numImages; x+=1) {
       const button = document.createElement("button");
       button.setAttribute("data-index", x);
@@ -24,14 +25,26 @@ const View = (() => {
       if (x === currentIndex) {
         button.classList.add("active");
       }
+      
       carouselNavigation.appendChild(button);
+    }
+  }
+
+  const bindNavigationCircleEventListeners = (listener) => {
+    const buttons = document.querySelectorAll(".nav-circle");
+    for (let x = 0; x < buttons.length; x+=1) {
+      buttons[x].addEventListener("click", (e) => {
+        const index = e.target.getAttribute("data-index");
+        listener(index);
+      });
     }
   }
 
   return {
     init,
     displayImage,
-    displayNavigationCircles
+    displayNavigationCircles,
+    bindNavigationCircleEventListeners
   }
 })();
 

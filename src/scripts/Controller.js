@@ -5,6 +5,12 @@ const Controller = (() => {
   const updateDisplay = () => {
     View.displayImage(Carousel.get());
     View.displayNavigationCircles(Carousel.length(), Carousel.getIndex());
+    View.bindNavigationCircleEventListeners(handleNavigationCircleClicked);
+  }
+
+  const handleNavigationCircleClicked = (index) => {
+    Carousel.set(parseInt(index));
+    updateDisplay();
   }
 
   const init = () => {

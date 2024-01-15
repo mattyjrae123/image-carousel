@@ -43,7 +43,7 @@ const Carousel = (() => {
 
   const set = (newIndex) => {
     if (newIndex < 0 || newIndex >= images.length) {
-      return;
+     return;
     }
     
     currentIndex = newIndex;
