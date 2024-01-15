@@ -9,12 +9,11 @@ const Controller = (() => {
   }
 
   const handleNavigationCircleClicked = (index) => {
-    Carousel.set(parseInt(index));
+    Carousel.set(parseInt(index, 10));
     updateDisplay();
   }
 
   const init = () => {
-    View.init(Carousel.length());
     updateDisplay();
   }
 

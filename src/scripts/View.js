@@ -2,10 +2,6 @@ const View = (() => {
   const carouselDisplay = document.querySelector("#carousel-display");
   const carouselNavigation = document.querySelector("#carousel-nav");
 
-  const init = () => {
-    console.log("View.init()");
-  }
-
   const displayImage = (url) => {
     carouselDisplay.textContent = "";
     const newImage = document.createElement("img");
@@ -41,7 +37,6 @@ const View = (() => {
   }
 
   return {
-    init,
     displayImage,
     displayNavigationCircles,
     bindNavigationCircleEventListeners
