@@ -1,12 +1,11 @@
 import View from "./View";
-import Model from "./Model";
+import Carousel from "./Carousel";
 
 const Controller = (() => {
   const init = () => {
     // testing setup code 
     console.log("Controller.init()");
     View.init();
-    Model.init();
   }
 
   return {

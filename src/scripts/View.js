@@ -1,4 +1,4 @@
-const View = (() => {
+const View = (() => {  
   const init = () => {
     console.log("View.init()");
   }
