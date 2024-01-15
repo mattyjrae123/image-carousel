@@ -7,8 +7,6 @@ const Controller = (() => {
     console.log("Controller.init()");
     View.init();
     Model.init();
-
-    document.querySelector("#root").textContent = "Hello root";
   }
 
   return {
