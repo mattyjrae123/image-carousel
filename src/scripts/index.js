@@ -1,3 +1,4 @@
 import "../styles/style.css";
+import Controller from "./Controller";
 
-console.log("Noodle");
+Controller.init();
