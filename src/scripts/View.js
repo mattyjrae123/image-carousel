@@ -39,11 +39,16 @@ const View = (() => {
     });
   };
 
+  const bindKeydownEventHandler = (handler) => {
+    document.addEventListener("keydown", handler);
+  }
+
   return {
     setImage,
     setCarouselButtons,
     updateCarouselButtons,
     bindCarouselButtonEventHandlers,
+    bindKeydownEventHandler
   };
 })();
 

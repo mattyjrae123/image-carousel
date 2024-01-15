@@ -15,12 +15,12 @@ const Controller = (() => {
   const handleInterval = () => {
     Carousel.next();
     updateView();
-  }
+  };
 
   const resetInterval = () => {
     clearInterval(intervalId);
     intervalId = setInterval(handleInterval, INTERVAL_TIMER);
-  }
+  };
 
   const handleCarouselButtonClick = (e) => {
     const rawInput = e.target.getAttribute("data-index");
@@ -32,10 +32,24 @@ const Controller = (() => {
     resetInterval();
   };
 
+  const handleKeydownEvent = (e) => {
+    if (e.key === "ArrowRight") {
+      Carousel.next();
+    } else if (e.key === "ArrowLeft") {
+      Carousel.previous();
+    } else {
+      return;
+    }
+
+    updateView();
+    resetInterval();
+  };
+
   const start = () => {
     Carousel.set(0);
     View.setCarouselButtons(Carousel.length(), Carousel.getIndex());
     View.bindCarouselButtonEventHandlers(handleCarouselButtonClick);
+    View.bindKeydownEventHandler(handleKeydownEvent);
     updateView();
 
     resetInterval();
