@@ -8,7 +8,8 @@ const Controller = (() => {
     View.bindNavigationCircleEventListeners(handleNavigationCircleClicked);
   }
 
-  const handleNavigationCircleClicked = (index) => {
+  const handleNavigationCircleClicked = (e) => {
+    const index = e.target.getAttribute("data-index");
     Carousel.set(parseInt(index, 10));
     updateView();
   }

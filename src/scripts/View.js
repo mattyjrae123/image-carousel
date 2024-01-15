@@ -27,13 +27,10 @@ const View = (() => {
   }
 
   const bindNavigationCircleEventListeners = (listener) => {
-    const buttons = document.querySelectorAll(".nav-circle");
-    for (let x = 0; x < buttons.length; x+=1) {
-      buttons[x].addEventListener("click", (e) => {
-        const index = e.target.getAttribute("data-index");
-        listener(index);
+    document.querySelectorAll(".nav-circle")
+      .forEach((button) => {
+        button.addEventListener("click", listener);
       });
-    }
   }
 
   return {
