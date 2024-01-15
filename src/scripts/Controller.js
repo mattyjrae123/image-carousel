@@ -3,25 +3,31 @@ import Carousel from "./Carousel";
 
 const Controller = (() => {
   const updateView = () => {
-    View.displayImage(Carousel.get());
-    View.displayNavigationCircles(Carousel.length(), Carousel.getIndex());
-    View.bindNavigationCircleEventListeners(handleNavigationCircleClicked);
-  }
+    const imageURL = Carousel.getURL();
 
-  const handleNavigationCircleClicked = (e) => {
-    const index = e.target.getAttribute("data-index");
-    Carousel.set(parseInt(index, 10));
+    View.setImage(imageURL);
+    View.updateCarouselButtons(Carousel.getIndex());
+  };
+
+  const handleCarouselButtonClick = (e) => {
+    const rawInput = e.target.getAttribute("data-index");
+    const index = parseInt(rawInput, 10);
+
+    Carousel.set(index);
+
     updateView();
-  }
+  };
 
-  const init = () => {
+  const start = () => {
     Carousel.set(0);
+    View.setCarouselButtons(Carousel.length(), Carousel.getIndex());
+    View.bindCarouselButtonEventHandlers(handleCarouselButtonClick);
     updateView();
-  }
+  };
 
   return {
-    init
-  }
+    start,
+  };
 })();
 
 export default Controller;

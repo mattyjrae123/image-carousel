@@ -37,20 +37,20 @@ const Carousel = (() => {
 
   const length = () => images.length;
 
-  const get = () => images[currentIndex];
+  const getURL = () => images[currentIndex];
 
   const getIndex = () => currentIndex;
 
   const set = (newIndex) => {
     if (newIndex < 0 || newIndex >= images.length) {
-     return;
+      return;
     }
-    
+
     currentIndex = newIndex;
   };
 
   const next = () => {
-    if (currentIndex >= images.length -1) {
+    if (currentIndex >= images.length - 1) {
       currentIndex = 0;
     } else {
       currentIndex += 1;
@@ -67,11 +67,11 @@ const Carousel = (() => {
 
   return {
     length,
-    get,
+    getURL,
     getIndex,
     set,
     next,
-    previous
+    previous,
   };
 })();
 
