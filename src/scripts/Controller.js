@@ -2,7 +2,7 @@ import View from "./View";
 import Carousel from "./Carousel";
 
 const Controller = (() => {
-  const updateDisplay = () => {
+  const updateView = () => {
     View.displayImage(Carousel.get());
     View.displayNavigationCircles(Carousel.length(), Carousel.getIndex());
     View.bindNavigationCircleEventListeners(handleNavigationCircleClicked);
@@ -10,11 +10,12 @@ const Controller = (() => {
 
   const handleNavigationCircleClicked = (index) => {
     Carousel.set(parseInt(index, 10));
-    updateDisplay();
+    updateView();
   }
 
   const init = () => {
-    updateDisplay();
+    Carousel.set(0);
+    updateView();
   }
 
   return {

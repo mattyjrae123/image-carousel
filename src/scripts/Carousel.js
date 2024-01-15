@@ -33,7 +33,7 @@ const Carousel = (() => {
     image15,
   ];
 
-  let currentIndex = 0;
+  let currentIndex;
 
   const length = () => images.length;
 
