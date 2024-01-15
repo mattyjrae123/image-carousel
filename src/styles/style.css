@@ -28,6 +28,13 @@ body {
   justify-content: space-between;
 }
 
+#carousel-nav {
+  margin: 0.5rem 0;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 footer {
   display: flex;
   gap: 1rem;
