@@ -1,5 +1,6 @@
 const View = (() => {
   const carouselDisplay = document.querySelector("#carousel-display");
+  const carouselNavigation = document.querySelector("#carousel-nav");
 
   const init = () => {
     console.log("View.init()");
@@ -14,9 +15,23 @@ const View = (() => {
     carouselDisplay.appendChild(newImage);
   }
 
+  const displayNavigationCircles = (numImages, currentIndex) => {
+    for (let x = 0; x < numImages; x+=1) {
+      const button = document.createElement("button");
+      button.setAttribute("data-index", x);
+      button.classList.add("nav-circle");
+
+      if (x === currentIndex) {
+        button.classList.add("active");
+      }
+      carouselNavigation.appendChild(button);
+    }
+  }
+
   return {
     init,
-    displayImage
+    displayImage,
+    displayNavigationCircles
   }
 })();
 
